@@ -1,3 +1,7 @@
+server:
+  servlet:
+    context-path: /online-university
+
 spring:
   profiles:
     active: Local
