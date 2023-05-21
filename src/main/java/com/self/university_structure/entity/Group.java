@@ -6,7 +6,7 @@ import lombok.Data;
 
 @Entity
 @Data
-@Table(name = "GROUP")
+@Table(name = "\"GROUP\"")
 public class Group extends BaseEntity {
 
     @ManyToOne(fetch = FetchType.LAZY)
@@ -19,6 +19,7 @@ public class Group extends BaseEntity {
     @Column(name = "NAME")
     private String name;
 
-
+    @Column(name = "LANGUAGE")
+    @Enumerated(value = EnumType.STRING)
     private GroupLanguage language;
 }

@@ -16,21 +16,26 @@ public class StudentServiceImpl implements StudentService {
 
     @Override
     public ResponseDto<Long> create(Student student) {
-        return null;
+        var save = repository.save(student);
+        return new ResponseDto<>(true, 1, "created", save.getId());
     }
 
     @Override
     public ResponseDto<Student> getById(Long id) {
-        return null;
+        var student = repository.findById(id);
+        return new ResponseDto<>(true, 1, "success", student.get());
+
     }
 
     @Override
     public ResponseDto<Long> update(Student student) {
-        return null;
+        var save = repository.save(student);
+        return new ResponseDto<>(true, 1, "updated", save.getId());
     }
 
     @Override
     public ResponseDto<Long> delete(Long id) {
-        return null;
+        repository.deleteById(id);
+        return new ResponseDto<>(true, 1, "deleted", id);
     }
 }

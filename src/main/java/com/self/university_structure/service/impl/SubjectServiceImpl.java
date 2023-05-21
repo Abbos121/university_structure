@@ -15,21 +15,25 @@ public class SubjectServiceImpl implements SubjectService {
 
     @Override
     public ResponseDto<Long> create(Subject subject) {
-        return null;
+        var save = repository.save(subject);
+        return new ResponseDto<>(true, 1, "created", save.getId());
     }
 
     @Override
     public ResponseDto<Subject> getById(Long id) {
-        return null;
+        var uni = repository.findById(id);
+        return new ResponseDto<>(true, 1, "success", uni.get());
     }
 
     @Override
     public ResponseDto<Long> update(Subject subject) {
-        return null;
+        var save = repository.save(subject);
+        return new ResponseDto<>(true, 1, "updated", save.getId());
     }
 
     @Override
     public ResponseDto<Long> delete(Long id) {
-        return null;
+        repository.deleteById(id);
+        return new ResponseDto<>(true, 1, "deleted", id);
     }
 }

@@ -3,6 +3,7 @@ package com.self.university_structure.entity;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -16,6 +17,6 @@ public class Journal extends BaseEntity {
     @JoinColumn(name = "GROUP_ID")
     private Group group;
 
-    @ManyToMany
-    private List<Subject> subjects;
+    @ManyToMany(mappedBy = "journals")
+    private List<Subject> subjects = new ArrayList<>();
 }
