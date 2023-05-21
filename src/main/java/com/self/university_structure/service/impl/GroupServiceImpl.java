@@ -1,6 +1,7 @@
 package com.self.university_structure.service.impl;
 
 import com.self.university_structure.dto.ResponseDto;
+import com.self.university_structure.dto.request.GroupRequestDto;
 import com.self.university_structure.entity.Group;
 import com.self.university_structure.repository.GroupRepository;
 import com.self.university_structure.service.GroupService;
@@ -14,7 +15,7 @@ public class GroupServiceImpl implements GroupService {
     private GroupRepository repository;
 
     @Override
-    public ResponseDto<Long> create(Group group) {
+    public ResponseDto<Long> create(GroupRequestDto group) {
         return null;
     }
 
@@ -24,7 +25,7 @@ public class GroupServiceImpl implements GroupService {
     }
 
     @Override
-    public ResponseDto<Long> update(Group group) {
+    public ResponseDto<Long> update(GroupRequestDto group) {
         return null;
     }
 

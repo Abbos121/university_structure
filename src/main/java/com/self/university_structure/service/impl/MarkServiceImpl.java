@@ -1,6 +1,7 @@
 package com.self.university_structure.service.impl;
 
 import com.self.university_structure.dto.ResponseDto;
+import com.self.university_structure.dto.request.MarkRequestDto;
 import com.self.university_structure.entity.Mark;
 import com.self.university_structure.repository.MarkRepository;
 import com.self.university_structure.service.MarkService;
@@ -14,7 +15,7 @@ public class MarkServiceImpl implements MarkService {
     private final MarkRepository repository;
 
     @Override
-    public ResponseDto<Long> create(Mark mark) {
+    public ResponseDto<Long> create(MarkRequestDto mark) {
         return null;
     }
 
@@ -24,7 +25,7 @@ public class MarkServiceImpl implements MarkService {
     }
 
     @Override
-    public ResponseDto<Long> update(Mark mark) {
+    public ResponseDto<Long> update(MarkRequestDto mark) {
         return null;
     }
 

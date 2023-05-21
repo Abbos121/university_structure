@@ -1,6 +1,7 @@
 package com.self.university_structure.service.impl;
 
 import com.self.university_structure.dto.ResponseDto;
+import com.self.university_structure.dto.request.JournalRequestDto;
 import com.self.university_structure.entity.Journal;
 import com.self.university_structure.repository.JournalRepository;
 import com.self.university_structure.service.JournalService;
@@ -14,7 +15,7 @@ public class JournalServiceImpl implements JournalService {
     private final JournalRepository repository;
 
     @Override
-    public ResponseDto<Long> create(Journal journal) {
+    public ResponseDto<Long> create(JournalRequestDto journal) {
         return null;
     }
 
@@ -24,7 +25,7 @@ public class JournalServiceImpl implements JournalService {
     }
 
     @Override
-    public ResponseDto<Long> update(Journal journal) {
+    public ResponseDto<Long> update(JournalRequestDto journal) {
         return null;
     }
 

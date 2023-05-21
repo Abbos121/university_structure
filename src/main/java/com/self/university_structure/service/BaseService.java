@@ -2,9 +2,9 @@ package com.self.university_structure.service;
 
 import com.self.university_structure.dto.ResponseDto;
 
-public interface BaseService<T> {
-    ResponseDto<Long> create(T t);
+public interface BaseService<T, L> {
+    ResponseDto<Long> create(L l);
     ResponseDto<T> getById(Long id);
-    ResponseDto<Long> update(T t);
+    ResponseDto<Long> update(L l);
     ResponseDto<Long> delete(Long id);
 }

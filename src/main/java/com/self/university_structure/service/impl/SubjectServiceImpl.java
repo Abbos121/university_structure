@@ -1,6 +1,7 @@
 package com.self.university_structure.service.impl;
 
 import com.self.university_structure.dto.ResponseDto;
+import com.self.university_structure.dto.request.SubjectRequestDto;
 import com.self.university_structure.entity.Subject;
 import com.self.university_structure.repository.SubjectRepository;
 import com.self.university_structure.service.SubjectService;
@@ -14,7 +15,8 @@ public class SubjectServiceImpl implements SubjectService {
     private final SubjectRepository repository;
 
     @Override
-    public ResponseDto<Long> create(Subject subject) {
+    public ResponseDto<Long> create(SubjectRequestDto dto) {
+        Subject subject = new Subject();
         var save = repository.save(subject);
         return new ResponseDto<>(true, 1, "created", save.getId());
     }
@@ -26,7 +28,8 @@ public class SubjectServiceImpl implements SubjectService {
     }
 
     @Override
-    public ResponseDto<Long> update(Subject subject) {
+    public ResponseDto<Long> update(SubjectRequestDto dto) {
+        Subject subject = new Subject();
         var save = repository.save(subject);
         return new ResponseDto<>(true, 1, "updated", save.getId());
     }

@@ -1,6 +1,7 @@
 package com.self.university_structure.service.impl;
 
 import com.self.university_structure.dto.ResponseDto;
+import com.self.university_structure.dto.request.UniversityRequestDto;
 import com.self.university_structure.entity.University;
 import com.self.university_structure.repository.UniversityRepository;
 import com.self.university_structure.service.UniversityService;
@@ -14,7 +15,8 @@ public class UniversityServiceImpl implements UniversityService {
     private final UniversityRepository repository;
 
     @Override
-    public ResponseDto<Long> create(University university) {
+    public ResponseDto<Long> create(UniversityRequestDto dto) {
+        University university = new University();
         var save = repository.save(university);
         return new ResponseDto<>(true, 1, "created", save.getId());
     }
@@ -26,7 +28,8 @@ public class UniversityServiceImpl implements UniversityService {
     }
 
     @Override
-    public ResponseDto<Long> update(University university) {
+    public ResponseDto<Long> update(UniversityRequestDto dto) {
+        University university = new University();
         var save = repository.save(university);
         return new ResponseDto<>(true, 1, "updated", save.getId());
     }
