@@ -1,4 +1,4 @@
-package com.selt.university_structure;
+package com.self.university_structure;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
