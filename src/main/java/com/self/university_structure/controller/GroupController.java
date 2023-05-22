@@ -1,6 +1,7 @@
 package com.self.university_structure.controller;
 
 import com.self.university_structure.dto.ResponseDto;
+import com.self.university_structure.dto.request.GroupRequestDto;
 import com.self.university_structure.entity.Group;
 import com.self.university_structure.service.GroupService;
 import lombok.RequiredArgsConstructor;
@@ -14,7 +15,7 @@ public class GroupController {
     private final GroupService service;
 
     @PostMapping
-    public ResponseEntity<ResponseDto<Long>> create(@RequestBody Group group) {
+    public ResponseEntity<ResponseDto<Long>> create(@RequestBody GroupRequestDto group) {
         return ResponseEntity.ok(service.create(group));
     }
 
@@ -24,7 +25,7 @@ public class GroupController {
     }
 
     @PutMapping
-    public ResponseEntity<ResponseDto<Long>> update(@RequestBody Group group) {
+    public ResponseEntity<ResponseDto<Long>> update(@RequestBody GroupRequestDto group) {
         return ResponseEntity.ok(service.update(group));
     }
 

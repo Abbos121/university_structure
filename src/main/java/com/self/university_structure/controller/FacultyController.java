@@ -2,6 +2,7 @@ package com.self.university_structure.controller;
 
 
 import com.self.university_structure.dto.ResponseDto;
+import com.self.university_structure.dto.request.FacultyRequestDto;
 import com.self.university_structure.entity.Faculty;
 import com.self.university_structure.service.FacultyService;
 import lombok.RequiredArgsConstructor;
@@ -15,7 +16,7 @@ public class FacultyController {
     private final FacultyService service;
 
     @PostMapping
-    public ResponseEntity<ResponseDto<Long>> create(@RequestBody Faculty faculty) {
+    public ResponseEntity<ResponseDto<Long>> create(@RequestBody FacultyRequestDto faculty) {
         return ResponseEntity.ok(service.create(faculty));
     }
 
@@ -25,7 +26,7 @@ public class FacultyController {
     }
 
     @PutMapping
-    public ResponseEntity<ResponseDto<Long>> update(@RequestBody Faculty faculty) {
+    public ResponseEntity<ResponseDto<Long>> update(@RequestBody FacultyRequestDto faculty) {
         return ResponseEntity.ok(service.update(faculty));
     }
 

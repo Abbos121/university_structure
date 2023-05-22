@@ -1,6 +1,5 @@
 package com.self.university_structure.exception.handler;
 
-import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;
@@ -22,6 +21,17 @@ public class GeneralExceptionHandler extends ResponseEntityExceptionHandler {
 
     // THIS METHOD HANDLES MethodArgumentNotValidException TYPE OF EXCEPTIONS
     // AND RETURNS A USER FRIENDLY MESSAGES TO CLIENTS
+    @ExceptionHandler(MethodArgumentNotValidException.class)
+    public ResponseEntity<Object> handleMethodArgumentNotValid(MethodArgumentNotValidException ex) {
+        Map<String, String> errors = new HashMap<>();
+        ex.getBindingResult().getAllErrors().forEach((error) -> {
+            String fieldName = ((FieldError) error).getField();
+            String errorMessage = error.getDefaultMessage();
+            errors.put(fieldName, errorMessage);
+        });
+
+        return new ResponseEntity<>(errors, HttpStatus.BAD_REQUEST);
+    }
 
     @ExceptionHandler(Exception.class)
     public ResponseEntity handleExceptionClass(Exception ex, WebRequest request) {

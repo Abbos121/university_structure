@@ -1,6 +1,7 @@
 package com.self.university_structure.controller;
 
 import com.self.university_structure.dto.ResponseDto;
+import com.self.university_structure.dto.request.SubjectRequestDto;
 import com.self.university_structure.entity.Subject;
 import com.self.university_structure.service.SubjectService;
 import lombok.RequiredArgsConstructor;
@@ -15,7 +16,7 @@ public class SubjectController {
     private final SubjectService service;
 
     @PostMapping
-    public ResponseEntity<ResponseDto<Long>> create(@RequestBody Subject subject) {
+    public ResponseEntity<ResponseDto<Long>> create(@RequestBody SubjectRequestDto subject) {
         return ResponseEntity.ok(service.create(subject));
     }
 
@@ -25,7 +26,7 @@ public class SubjectController {
     }
 
     @PutMapping
-    public ResponseEntity<ResponseDto<Long>> update(@RequestBody Subject subject) {
+    public ResponseEntity<ResponseDto<Long>> update(@RequestBody SubjectRequestDto subject) {
         return ResponseEntity.ok(service.update(subject));
     }
 

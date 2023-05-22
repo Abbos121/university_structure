@@ -15,7 +15,7 @@ public abstract class BaseEntity {
     private Long id;
 
     @Column(name = "IS_ACTIVE")
-    private boolean isActive;
+    private boolean isActive = true;
 
     @Column(name = "CREATED_AT")
     private LocalDateTime createdAt;

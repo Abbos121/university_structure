@@ -1,6 +1,7 @@
 package com.self.university_structure.controller;
 
 import com.self.university_structure.dto.ResponseDto;
+import com.self.university_structure.dto.request.JournalRequestDto;
 import com.self.university_structure.entity.Journal;
 import com.self.university_structure.service.JournalService;
 import lombok.RequiredArgsConstructor;
@@ -15,7 +16,7 @@ public class JournalController {
     private final JournalService service;
 
     @PostMapping
-    public ResponseEntity<ResponseDto<Long>> create(@RequestBody Journal journal) {
+    public ResponseEntity<ResponseDto<Long>> create(@RequestBody JournalRequestDto journal) {
         return ResponseEntity.ok(service.create(journal));
     }
 
@@ -25,7 +26,7 @@ public class JournalController {
     }
 
     @PutMapping
-    public ResponseEntity<ResponseDto<Long>> update(@RequestBody Journal journal) {
+    public ResponseEntity<ResponseDto<Long>> update(@RequestBody JournalRequestDto journal) {
         return ResponseEntity.ok(service.update(journal));
     }
 
