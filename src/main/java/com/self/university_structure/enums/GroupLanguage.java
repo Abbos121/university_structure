@@ -14,4 +14,14 @@ public enum GroupLanguage {
     GroupLanguage(int code) {
         this.code = code;
     }
+
+    public static GroupLanguage getByCode(Integer code) {
+        var values = GroupLanguage.values();
+        for (GroupLanguage value  : values) {
+            if (value.getCode() == code)
+                return value;
+        }
+
+        return UZBEK;
+    }
 }

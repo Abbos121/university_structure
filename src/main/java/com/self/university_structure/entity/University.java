@@ -1,5 +1,6 @@
 package com.self.university_structure.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
@@ -12,6 +13,7 @@ import java.time.LocalDate;
 @Data
 @Table(name = "UNIVERSITY")
 @NoArgsConstructor
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class University extends BaseEntity {
     @Column(name = "NAME")
     private String name;

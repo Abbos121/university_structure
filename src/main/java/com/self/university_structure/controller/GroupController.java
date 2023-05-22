@@ -4,6 +4,7 @@ import com.self.university_structure.dto.ResponseDto;
 import com.self.university_structure.dto.request.GroupRequestDto;
 import com.self.university_structure.entity.Group;
 import com.self.university_structure.service.GroupService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -15,7 +16,7 @@ public class GroupController {
     private final GroupService service;
 
     @PostMapping
-    public ResponseEntity<ResponseDto<Long>> create(@RequestBody GroupRequestDto group) {
+    public ResponseEntity<ResponseDto<Long>> create(@RequestBody @Valid GroupRequestDto group) {
         return ResponseEntity.ok(service.create(group));
     }
 
@@ -25,7 +26,7 @@ public class GroupController {
     }
 
     @PutMapping
-    public ResponseEntity<ResponseDto<Long>> update(@RequestBody GroupRequestDto group) {
+    public ResponseEntity<ResponseDto<Long>> update(@RequestBody @Valid GroupRequestDto group) {
         return ResponseEntity.ok(service.update(group));
     }
 

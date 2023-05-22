@@ -1,5 +1,6 @@
 package com.self.university_structure.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.self.university_structure.enums.GroupLanguage;
 import jakarta.persistence.*;
 import lombok.Data;
@@ -7,6 +8,7 @@ import lombok.Data;
 @Entity
 @Data
 @Table(name = "\"GROUP\"")
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Group extends BaseEntity {
 
     @ManyToOne(fetch = FetchType.LAZY)

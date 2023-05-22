@@ -5,6 +5,7 @@ import com.self.university_structure.dto.ResponseDto;
 import com.self.university_structure.dto.request.FacultyRequestDto;
 import com.self.university_structure.entity.Faculty;
 import com.self.university_structure.service.FacultyService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -16,7 +17,7 @@ public class FacultyController {
     private final FacultyService service;
 
     @PostMapping
-    public ResponseEntity<ResponseDto<Long>> create(@RequestBody FacultyRequestDto faculty) {
+    public ResponseEntity<ResponseDto<Long>> create(@RequestBody @Valid FacultyRequestDto faculty) {
         return ResponseEntity.ok(service.create(faculty));
     }
 
@@ -26,7 +27,7 @@ public class FacultyController {
     }
 
     @PutMapping
-    public ResponseEntity<ResponseDto<Long>> update(@RequestBody FacultyRequestDto faculty) {
+    public ResponseEntity<ResponseDto<Long>> update(@RequestBody @Valid FacultyRequestDto faculty) {
         return ResponseEntity.ok(service.update(faculty));
     }
 

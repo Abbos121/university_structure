@@ -17,4 +17,10 @@ public class ResponseDto <T> {
         this.message = message;
         this.data = data;
     }
+
+    public ResponseDto(boolean success, Integer code, String message) {
+        this.success = success;
+        this.code = code;
+        this.message = message;
+    }
 }

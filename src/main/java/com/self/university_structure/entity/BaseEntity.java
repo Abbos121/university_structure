@@ -18,7 +18,7 @@ public abstract class BaseEntity {
     private boolean isActive = true;
 
     @Column(name = "CREATED_AT")
-    private LocalDateTime createdAt;
+    private LocalDateTime createdAt = LocalDateTime.now();
 
     @Column(name = "UPDATED_AT")
     private LocalDateTime updatedAt;

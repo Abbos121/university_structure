@@ -11,7 +11,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
-import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -25,7 +24,6 @@ public class UniversityServiceImpl implements UniversityService {
         university.setName(dto.getName());
         university.setAddress(dto.getAddress());
         university.setOpenedDate(DateHelper.convertStringToDate(dto.getOpenedDate(), "dd/MM/yyyy"));
-        university.setCreatedAt(LocalDateTime.now());
         var save = repository.save(university);
         return new ResponseDto<>(true, 1, "created", save.getId());
     }
@@ -33,14 +31,18 @@ public class UniversityServiceImpl implements UniversityService {
     @Override
     public ResponseDto<University> getById(Long id) {
         var uni = repository.findById(id);
+        if (uni.isEmpty())
+            throw new ResourceNotFoundException("University not found");
         return new ResponseDto<>(true, 1, "success", uni.get());
     }
 
     @Override
     public ResponseDto<Long> update(UniversityRequestDto dto) {
-        var university = repository.findById(dto.getId()).get();
-        if (university == null)
+        var uni = repository.findById(dto.getId());
+        if (uni.isEmpty())
             throw new ResourceNotFoundException("University not found");
+
+        University university = uni.get();
         university.setId(dto.getId());
         university.setName(dto.getName());
         university.setAddress(dto.getAddress());
