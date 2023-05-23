@@ -3,6 +3,7 @@ package com.self.university_structure.service.impl;
 import com.self.university_structure.dto.ResponseDto;
 import com.self.university_structure.dto.request.GroupRequestDto;
 import com.self.university_structure.entity.Group;
+import com.self.university_structure.entity.custom.GroupStatsCustomDto;
 import com.self.university_structure.enums.GroupLanguage;
 import com.self.university_structure.exception.ResourceNotFoundException;
 import com.self.university_structure.repository.FacultyRepository;
@@ -12,6 +13,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -66,5 +68,11 @@ public class GroupServiceImpl implements GroupService {
     public ResponseDto<Long> delete(Long id) {
         repository.deleteById(id);
         return new ResponseDto<>(true, 1, "success", id);
+    }
+
+    @Override
+    public ResponseDto getGroupStatsByFaculty(Long facultyId) {
+        var groupStatsByFaculty = repository.getGroupStatsByFaculty(facultyId);
+        return new ResponseDto(true, 1, "success", groupStatsByFaculty);
     }
 }

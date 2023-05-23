@@ -34,4 +34,9 @@ public class GroupController {
     public ResponseEntity<ResponseDto<Long>> delete(@PathVariable(value = "id") Long id) {
         return ResponseEntity.ok(service.delete(id));
     }
+
+    @GetMapping("stats-by-faculty")
+    public ResponseEntity<ResponseDto> getGroupStatisticsByFaculty(@RequestParam("facultyId") Long facultyId) {
+        return ResponseEntity.ok(service.getGroupStatsByFaculty(facultyId));
+    }
 }

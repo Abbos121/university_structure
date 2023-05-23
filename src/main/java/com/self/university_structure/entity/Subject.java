@@ -10,7 +10,7 @@ import java.util.List;
 @Entity
 @Data
 @Table(name = "SUBJECT")
-@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+//@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Subject extends BaseEntity {
     @Column(name = "NAME")
     private String name;

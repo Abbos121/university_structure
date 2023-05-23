@@ -13,7 +13,7 @@ import java.time.LocalDate;
 @Data
 @Table(name = "UNIVERSITY")
 @NoArgsConstructor
-@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+//@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class University extends BaseEntity {
     @Column(name = "NAME")
     private String name;

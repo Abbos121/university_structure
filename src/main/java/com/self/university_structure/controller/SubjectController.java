@@ -9,6 +9,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/subject")
@@ -34,5 +36,10 @@ public class SubjectController {
     @DeleteMapping("/{id}")
     public ResponseEntity<ResponseDto<Long>> delete(@PathVariable(value = "id") Long id) {
         return ResponseEntity.ok(service.delete(id));
+    }
+
+    @GetMapping("subjects-by-student")
+    public ResponseEntity<ResponseDto<List<Subject>>> getSubjectsByStudentId(Long studentId) {
+        return ResponseEntity.ok(service.getSubjectsByStudentId(studentId));
     }
 }

@@ -7,7 +7,7 @@ import lombok.Data;
 @Entity
 @Table(name = "FACULTY")
 @Data
-@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+//@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Faculty extends BaseEntity {
     @Column(name = "NAME")
     private String name;

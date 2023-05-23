@@ -11,6 +11,7 @@ import com.self.university_structure.service.SubjectService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -59,5 +60,11 @@ public class SubjectServiceImpl implements SubjectService {
     public ResponseDto<Long> delete(Long id) {
         repository.deleteById(id);
         return new ResponseDto<>(true, 1, "deleted", id);
+    }
+
+    @Override
+    public ResponseDto<List<Subject>> getSubjectsByStudentId(@RequestParam(name = "studentId") Long studentId) {
+        var subjects = repository.getByStudentId(studentId);
+        return new ResponseDto<>(true, 1, "success", subjects);
     }
 }

@@ -7,7 +7,7 @@ import lombok.Data;
 @Entity
 @Data
 @Table(name = "MARK")
-@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+//@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Mark extends BaseEntity {
     @ManyToOne(fetch = FetchType.LAZY)
     private Student student;

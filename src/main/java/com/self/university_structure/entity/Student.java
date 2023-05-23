@@ -22,5 +22,5 @@ public class Student extends BaseEntity {
     private LocalDate dateOfBirth;
 
     @Column(name = "GENDER")
-    private Integer gender;
+    private Integer gender; // MALE-1, FEMALE-2
 }
