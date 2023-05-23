@@ -6,4 +6,5 @@ import com.self.university_structure.entity.Group;
 
 public interface GroupService extends BaseService<Group, GroupRequestDto> {
     ResponseDto getGroupStatsByFaculty(Long facultyId);
+    ResponseDto getStudentMarksByGroup(Long groupId);
 }

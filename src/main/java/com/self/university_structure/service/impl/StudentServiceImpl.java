@@ -3,6 +3,7 @@ package com.self.university_structure.service.impl;
 import com.self.university_structure.dto.ResponseDto;
 import com.self.university_structure.dto.request.StudentRequestDto;
 import com.self.university_structure.entity.Student;
+import com.self.university_structure.entity.custom.StudentInfoCustomDto;
 import com.self.university_structure.exception.ResourceNotFoundException;
 import com.self.university_structure.repository.GroupRepository;
 import com.self.university_structure.repository.StudentRepository;
@@ -12,6 +13,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -68,5 +70,11 @@ public class StudentServiceImpl implements StudentService {
     public ResponseDto<Long> delete(Long id) {
         repository.deleteById(id);
         return new ResponseDto<>(true, 1, "deleted", id);
+    }
+
+    @Override
+    public ResponseDto<List<StudentInfoCustomDto>> findByName(String name) {
+        var studentInfoByName = repository.getStudentInfoByName(name);
+        return new ResponseDto<>(true, 1, "success", studentInfoByName);
     }
 }

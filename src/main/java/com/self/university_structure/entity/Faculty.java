@@ -1,5 +1,6 @@
 package com.self.university_structure.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.Data;
@@ -7,7 +8,7 @@ import lombok.Data;
 @Entity
 @Table(name = "FACULTY")
 @Data
-//@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+@JsonIgnoreProperties({"university"})
 public class Faculty extends BaseEntity {
     @Column(name = "NAME")
     private String name;

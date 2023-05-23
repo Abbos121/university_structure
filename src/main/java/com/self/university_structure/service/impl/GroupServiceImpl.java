@@ -4,6 +4,7 @@ import com.self.university_structure.dto.ResponseDto;
 import com.self.university_structure.dto.request.GroupRequestDto;
 import com.self.university_structure.entity.Group;
 import com.self.university_structure.entity.custom.GroupStatsCustomDto;
+import com.self.university_structure.entity.custom.GroupStudentsScoresDto;
 import com.self.university_structure.enums.GroupLanguage;
 import com.self.university_structure.exception.ResourceNotFoundException;
 import com.self.university_structure.repository.FacultyRepository;
@@ -74,5 +75,11 @@ public class GroupServiceImpl implements GroupService {
     public ResponseDto getGroupStatsByFaculty(Long facultyId) {
         var groupStatsByFaculty = repository.getGroupStatsByFaculty(facultyId);
         return new ResponseDto(true, 1, "success", groupStatsByFaculty);
+    }
+
+    @Override
+    public ResponseDto getStudentMarksByGroup(Long groupId) {
+        var studentsScoresByGroup = repository.getStudentsScoresByGroup(groupId);
+        return new ResponseDto(true, 1, "success", studentsScoresByGroup);
     }
 }

@@ -39,4 +39,9 @@ public class GroupController {
     public ResponseEntity<ResponseDto> getGroupStatisticsByFaculty(@RequestParam("facultyId") Long facultyId) {
         return ResponseEntity.ok(service.getGroupStatsByFaculty(facultyId));
     }
+
+    @GetMapping("student-marks")
+    public ResponseEntity<ResponseDto> getStudentMarks(@RequestParam("groupId") Long groupId) {
+        return ResponseEntity.ok(service.getStudentMarksByGroup(groupId));
+    }
 }

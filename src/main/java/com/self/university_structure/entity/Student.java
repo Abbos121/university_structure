@@ -1,5 +1,6 @@
 package com.self.university_structure.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -9,6 +10,7 @@ import java.time.LocalDate;
 @Entity
 @Data
 @Table(name = "STUDENT")
+@JsonIgnoreProperties({"group"})
 public class Student extends BaseEntity {
 
     @ManyToOne(fetch = FetchType.LAZY)

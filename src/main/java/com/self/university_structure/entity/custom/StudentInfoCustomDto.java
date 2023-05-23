@@ -11,7 +11,10 @@ import java.util.Date;
 @Data
 public class StudentInfoCustomDto {
     @Id
-    private String id;
+    private Long id;
+
+    @Column(name = "FULL_NAME")
+    private String fullName;
 
     @Column(name = "GROUP_NAME")
     private String groupName;
@@ -19,9 +22,9 @@ public class StudentInfoCustomDto {
     @Column(name = "FACULTY_NAME")
     private String facultyName;
 
-    @Column(name = "DATE_OF_BIRTH")
-    private String dateOfBirth;
-
     @Column(name = "GENDER")
     private String gender;
+
+    @Column(name = "DATE_OF_BIRTH")
+    private String dateOfBirth;
 }

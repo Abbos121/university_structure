@@ -7,8 +7,8 @@ import lombok.Data;
 
 @Entity
 @Data
-@Table(name = "\"GROUP\"")
-//@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+@Table(name = "\"GROUPS\"")
+@JsonIgnoreProperties({"journal"})
 public class Group extends BaseEntity {
 
     @ManyToOne(fetch = FetchType.LAZY)

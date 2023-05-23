@@ -11,7 +11,7 @@ import lombok.Data;
 public class GroupStatsCustomDto {
     @Id
     @JsonIgnore
-    private String id;
+    private Long id;
 
     @Column(name = "group_name")
     private String groupName;
