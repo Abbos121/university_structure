@@ -1,8 +1,10 @@
 package com.self.university_structure.controller;
 
 import com.self.university_structure.dto.ResponseDto;
+import com.self.university_structure.dto.request.JournalRequestDto;
 import com.self.university_structure.entity.Journal;
 import com.self.university_structure.service.JournalService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -15,7 +17,7 @@ public class JournalController {
     private final JournalService service;
 
     @PostMapping
-    public ResponseEntity<ResponseDto<Long>> create(@RequestBody Journal journal) {
+    public ResponseEntity<ResponseDto<Long>> create(@RequestBody @Valid JournalRequestDto journal) {
         return ResponseEntity.ok(service.create(journal));
     }
 
@@ -25,7 +27,7 @@ public class JournalController {
     }
 
     @PutMapping
-    public ResponseEntity<ResponseDto<Long>> update(@RequestBody Journal journal) {
+    public ResponseEntity<ResponseDto<Long>> update(@RequestBody @Valid JournalRequestDto journal) {
         return ResponseEntity.ok(service.update(journal));
     }
 

@@ -1,12 +1,14 @@
 package com.self.university_structure.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.self.university_structure.enums.GroupLanguage;
 import jakarta.persistence.*;
 import lombok.Data;
 
 @Entity
 @Data
-@Table(name = "GROUP")
+@Table(name = "\"GROUPS\"")
+@JsonIgnoreProperties({"journal"})
 public class Group extends BaseEntity {
 
     @ManyToOne(fetch = FetchType.LAZY)
@@ -19,6 +21,7 @@ public class Group extends BaseEntity {
     @Column(name = "NAME")
     private String name;
 
-
+    @Column(name = "LANGUAGE")
+    @Enumerated(value = EnumType.STRING)
     private GroupLanguage language;
 }

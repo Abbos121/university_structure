@@ -1,12 +1,16 @@
 package com.self.university_structure.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.Data;
+
+import java.time.LocalDate;
 
 
 @Entity
 @Data
 @Table(name = "STUDENT")
+@JsonIgnoreProperties({"group"})
 public class Student extends BaseEntity {
 
     @ManyToOne(fetch = FetchType.LAZY)
@@ -16,9 +20,9 @@ public class Student extends BaseEntity {
     @Column(name = "FULL_NAME")
     private String fullName;
 
-    @Column(name = "AGE")
-    private Integer age;
+    @Column(name = "DATE_OF_BIRTH")
+    private LocalDate dateOfBirth;
 
     @Column(name = "GENDER")
-    private Integer gender;
+    private Integer gender; // MALE-1, FEMALE-2
 }

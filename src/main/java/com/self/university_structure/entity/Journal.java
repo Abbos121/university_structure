@@ -1,13 +1,16 @@
 package com.self.university_structure.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
 @Data
 @Table(name = "JOURNAL")
+@JsonIgnoreProperties({"group", "subjects"})
 public class Journal extends BaseEntity {
     @Column(name = "NAME")
     private String name;
@@ -16,6 +19,6 @@ public class Journal extends BaseEntity {
     @JoinColumn(name = "GROUP_ID")
     private Group group;
 
-    @ManyToMany
-    private List<Subject> subjects;
+    @ManyToMany(mappedBy = "journals")
+    private List<Subject> subjects = new ArrayList<>();
 }

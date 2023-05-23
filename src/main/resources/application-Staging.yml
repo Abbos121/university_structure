@@ -1,9 +1,0 @@
-spring:
-  datasource:
-    username: postgres
-    password: 6040
-    url: jdbc:postgresql://localhost:5432/university_structure
-    driver-class-name: org.postgresql.Driver
-  jpa:
-    hibernate:
-      ddl-auto: update
